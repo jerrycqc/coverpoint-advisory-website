@@ -1,0 +1,42 @@
+---
+import { contact } from '../data/site';
+---
+<section class="section section--dark" id="contact">
+  <div class="container contact__inner">
+    <div class="contact__intro">
+      <p class="eyebrow">Get in Touch</p>
+      <h2>{contact.heading}</h2>
+      <p class="contact__body">{contact.body}</p>
+      <p class="contact__note">{contact.formNote}</p>
+    </div>
+    <form class="contact__form" name="contact" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact" />
+      <label><span>Name</span><input type="text" name="name" required /></label>
+      <label><span>Email</span><input type="email" name="email" required /></label>
+      <label><span>Company</span><input type="text" name="company" /></label>
+      <label><span>Tell us about your current coverage</span><textarea name="message" rows="4"></textarea></label>
+      <button type="submit" class="btn btn--primary">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .contact__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  .contact__inner h2 { font-size: 28px; margin: 16px 0 18px; }
+  .contact__body { font-size: 15px; color: rgba(244, 242, 239, 0.75); line-height: 1.7; margin-bottom: 16px; }
+  .contact__note { font-size: 13px; color: rgba(244, 242, 239, 0.5); }
+  .contact__form { display: flex; flex-direction: column; gap: 16px; }
+  .contact__form label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: rgba(244, 242, 239, 0.7); }
+  .contact__form input, .contact__form textarea {
+    background: rgba(244, 242, 239, 0.06);
+    border: 1px solid rgba(244, 242, 239, 0.2);
+    border-radius: 4px;
+    padding: 12px 14px;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 14.5px;
+  }
+  .contact__form input:focus, .contact__form textarea:focus { outline: none; border-color: var(--teal-light); }
+  .contact__form button { margin-top: 6px; align-self: flex-start; }
+  @media (max-width: 860px) { .contact__inner { grid-template-columns: 1fr; } }
+</style>

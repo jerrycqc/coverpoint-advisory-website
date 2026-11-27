@@ -1,0 +1,25 @@
+---
+interface Props {
+  variant?: 'dark' | 'light';
+}
+const { variant = 'dark' } = Astro.props;
+const textColor = variant === 'dark' ? '#20242a' : '#f4f2ef';
+---
+<a href="/" class="logo" aria-label="Coverpoint Advisory">
+  <svg width="26" height="26" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M32 6 L54 14 V30 C54 44 44 54 32 58 C20 54 10 44 10 30 V14 Z" stroke="#1f8a82" stroke-width="4" stroke-linejoin="round" fill="none" />
+    <path d="M23 31 L29 37 L42 24" stroke="#1f8a82" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  </svg>
+  <span class="logo__text" style={`color:${textColor}`}>Coverpoint<em>Advisory</em></span>
+</a>
+
+<style>
+  .logo { display: inline-flex; align-items: center; gap: 10px; }
+  .logo__text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    white-space: nowrap;
+  }
+  .logo__text em { font-style: normal; font-weight: 500; opacity: 0.6; }
+</style>

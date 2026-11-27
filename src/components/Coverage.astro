@@ -1,0 +1,29 @@
+---
+import { coverage } from '../data/site';
+---
+<section class="section" id="coverage">
+  <div class="container">
+    <p class="eyebrow">What We Cover</p>
+    <h2 class="coverage__heading">{coverage.heading}</h2>
+    <p class="coverage__intro">{coverage.intro}</p>
+    <div class="coverage__grid">
+      {coverage.items.map((item) => (
+        <div class="coverage__card">
+          <h3>{item.name}</h3>
+          <p>{item.detail}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .coverage__heading { font-size: 32px; margin: 18px 0 14px; }
+  .coverage__intro { font-size: 15px; color: var(--grey); max-width: 560px; margin-bottom: 40px; }
+  .coverage__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .coverage__card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 26px; }
+  .coverage__card h3 { font-size: 16.5px; margin-bottom: 10px; }
+  .coverage__card p { font-size: 13.5px; color: var(--grey); line-height: 1.6; }
+  @media (max-width: 860px) { .coverage__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .coverage__grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,26 @@
+---
+import { valueAdd } from '../data/site';
+---
+<section class="section section--dark" id="approach">
+  <div class="container">
+    <p class="eyebrow">Our Approach</p>
+    <h2 class="value__heading">Why mid-market companies switch to Coverpoint.</h2>
+    <div class="value__grid">
+      {valueAdd.map((item) => (
+        <div class="value__card">
+          <h3>{item.title}</h3>
+          <p>{item.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .value__heading { font-size: 30px; max-width: 640px; margin: 16px 0 44px; }
+  .value__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .value__card { background: rgba(244, 242, 239, 0.05); border: 1px solid rgba(244, 242, 239, 0.14); border-radius: 8px; padding: 28px; }
+  .value__card h3 { font-size: 18px; margin-bottom: 10px; }
+  .value__card p { font-size: 14px; color: rgba(244, 242, 239, 0.7); line-height: 1.6; }
+  @media (max-width: 760px) { .value__grid { grid-template-columns: 1fr; } }
+</style>

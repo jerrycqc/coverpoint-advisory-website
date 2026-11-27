@@ -1,0 +1,35 @@
+---
+import Logo from './Logo.astro';
+import { nav } from '../data/site';
+---
+<header class="header">
+  <div class="container header__inner">
+    <Logo variant="dark" />
+    <nav class="header__nav">
+      {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+    <a href="#contact" class="btn btn--primary header__cta">Request a Review</a>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(244, 242, 239, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+    gap: 32px;
+  }
+  .header__nav { display: flex; align-items: center; gap: 28px; font-size: 14.5px; font-weight: 500; color: var(--grey); }
+  .header__nav a:hover { color: var(--teal); }
+  .header__cta { padding: 10px 20px; font-size: 13.5px; white-space: nowrap; }
+  @media (max-width: 760px) { .header__nav { display: none; } }
+</style>

@@ -1,0 +1,31 @@
+---
+import { process } from '../data/site';
+---
+<section class="section" id="process">
+  <div class="container">
+    <p class="eyebrow">The Process</p>
+    <h2 class="process__heading">{process.heading}</h2>
+    <div class="process__list">
+      {process.steps.map((step) => (
+        <div class="process__item">
+          <div class="process__num">{step.step}</div>
+          <div class="process__text">
+            <h3>{step.title}</h3>
+            <p>{step.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .process__heading { font-size: 30px; max-width: 600px; margin: 16px 0 44px; }
+  .process__list { display: flex; flex-direction: column; }
+  .process__item { display: grid; grid-template-columns: 64px 1fr; gap: 24px; padding: 26px 0; border-top: 1px solid var(--border); }
+  .process__item:last-child { border-bottom: 1px solid var(--border); }
+  .process__num { font-family: var(--font-head); font-size: 24px; color: var(--teal); }
+  .process__text h3 { font-size: 18px; margin-bottom: 8px; }
+  .process__text p { font-size: 14px; color: var(--grey); line-height: 1.6; max-width: 560px; }
+  @media (max-width: 600px) { .process__item { grid-template-columns: 1fr; gap: 8px; } }
+</style>

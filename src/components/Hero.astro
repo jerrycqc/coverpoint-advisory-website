@@ -1,0 +1,45 @@
+---
+import { hero } from '../data/site';
+---
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <p class="eyebrow">{hero.eyebrow}</p>
+      <h1 class="hero__headline">Coverage that <em>holds up</em> when it's tested.</h1>
+      <p class="hero__body">{hero.body}</p>
+      <div class="hero__ctas">
+        <a href={hero.ctaPrimary.href} class="btn btn--primary">{hero.ctaPrimary.label}</a>
+        <a href={hero.ctaSecondary.href} class="btn btn--outline">{hero.ctaSecondary.label}</a>
+      </div>
+    </div>
+    <div class="hero__stats">
+      {hero.stats.map((s) => (
+        <div class="hero__stat">
+          <div class="hero__stat-value">{s.value}</div>
+          <div class="hero__stat-label">{s.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero { background: var(--charcoal-900); color: var(--bg-light); padding: 76px 0 0; overflow: hidden; }
+  .hero__content { max-width: 700px; padding-bottom: 56px; }
+  .hero__headline { font-size: 46px; color: var(--white); margin: 22px 0 24px; line-height: 1.18; }
+  .hero__headline em { font-style: normal; color: var(--teal-light); }
+  .hero__body { font-size: 17px; color: rgba(244, 242, 239, 0.78); line-height: 1.7; max-width: 580px; margin-bottom: 32px; }
+  .hero__ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero :global(.btn--outline) { border-color: rgba(244, 242, 239, 0.3); color: var(--bg-light); }
+  .hero :global(.btn--outline:hover) { border-color: var(--teal-light); color: var(--teal-light); }
+  .hero__stats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(244, 242, 239, 0.12); }
+  .hero__stat { padding: 28px 24px; border-right: 1px solid rgba(244, 242, 239, 0.12); }
+  .hero__stat:last-child { border-right: none; }
+  .hero__stat-value { font-family: var(--font-head); font-size: 28px; color: var(--teal-light); margin-bottom: 6px; }
+  .hero__stat-label { font-size: 13px; color: rgba(244, 242, 239, 0.6); }
+  @media (max-width: 760px) {
+    .hero__headline { font-size: 32px; }
+    .hero__stats { grid-template-columns: 1fr; }
+    .hero__stat { border-right: none; border-bottom: 1px solid rgba(244, 242, 239, 0.12); }
+  }
+</style>
